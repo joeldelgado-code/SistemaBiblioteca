@@ -1,4 +1,5 @@
 ﻿BibliotecaService biblioteca = new BibliotecaService();
+string[] categorias = { "Novela", "Ciencia", "Historia", "Tecnología" };
 
 while (true)
 {
@@ -41,6 +42,13 @@ while (true)
 
                 Console.Write("Categoría: ");
                 string categoria = Console.ReadLine()!;
+
+                bool categoriaValida = categorias.Contains(categoria);
+
+                if (!categoriaValida)
+                {
+                    throw new Exception("La categoría no es válida.");
+                }
 
                 Console.Write("¿Está disponible? (true/false): ");
                 bool disponibilidad = bool.Parse(Console.ReadLine()!);

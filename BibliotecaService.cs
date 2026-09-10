@@ -142,6 +142,12 @@ public void ListarLibrosDisponibles()
     var librosDisponibles = libros
         .Where(l => l.disponibilidad);
 
+    if (!librosDisponibles.Any())
+    {
+        Console.WriteLine("No hay libros disponibles.");
+        return;
+    }
+
     foreach (var libro in librosDisponibles)
     {
         Console.WriteLine($"Código: {libro.codigo}");
@@ -154,6 +160,12 @@ public void BuscarLibrosPorAutor(string autor)
 {
     var resultados = libros
         .Where(l => l.autor.ToLower() == autor.ToLower());
+
+    if (!resultados.Any())
+    {
+        Console.WriteLine("No se encontraron libros de ese autor.");
+        return;
+    }
 
     foreach (var libro in resultados)
     {
@@ -168,6 +180,12 @@ public void BuscarLibrosPorCategoria(string categoria)
 {
     var resultados = libros
         .Where(l => l.categoría.ToLower() == categoria.ToLower());
+
+    if (!resultados.Any())
+    {
+        Console.WriteLine("No se encontraron libros de esa categoría.");
+        return;
+    }
 
     foreach (var libro in resultados)
     {
