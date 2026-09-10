@@ -3,6 +3,7 @@ class BibliotecaService
     private List<Libro> libros = new();
     private List<Usuario> usuarios = new();
 public void RegistrarLibro(Libro libro)
+
 {
     if (libros.Any(l => l.codigo == libro.codigo))
     {
@@ -10,6 +11,29 @@ public void RegistrarLibro(Libro libro)
     }
 
     libros.Add(libro);
+}
+public void RegistrarUsuario(Usuario usuario)
+{
+    if (usuarios.Any(u => u.codigo == usuario.codigo))
+    {
+        throw new Exception("El código del usuario ya existe.");
+    }
+
+    usuarios.Add(usuario);
+}
+public void ListarUsuarios()
+{
+    foreach (var usuario in usuarios)
+    {
+        Console.WriteLine($"Código: {usuario.codigo}");
+        Console.WriteLine($"Nombre: {usuario.nombre}");
+        Console.WriteLine($"Correo: {usuario.correo}");
+        Console.WriteLine();
+    }
+}
+public Usuario? BuscarUsuario(int codigo)
+{
+    return usuarios.FirstOrDefault(u => u.codigo == codigo);
 }
 public void ListarLibros()
 {
