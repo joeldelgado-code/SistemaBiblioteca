@@ -137,4 +137,59 @@ public void ListarPrestamosActivos()
         Console.WriteLine();
     }
 }
+public void ListarLibrosDisponibles()
+{
+    var librosDisponibles = libros
+        .Where(l => l.disponibilidad);
+
+    foreach (var libro in librosDisponibles)
+    {
+        Console.WriteLine($"Código: {libro.codigo}");
+        Console.WriteLine($"Título: {libro.titulo}");
+        Console.WriteLine($"Autor: {libro.autor}");
+        Console.WriteLine();
+    }
+}
+public void BuscarLibrosPorAutor(string autor)
+{
+    var resultados = libros
+        .Where(l => l.autor.ToLower() == autor.ToLower());
+
+    foreach (var libro in resultados)
+    {
+        Console.WriteLine($"Código: {libro.codigo}");
+        Console.WriteLine($"Título: {libro.titulo}");
+        Console.WriteLine($"Autor: {libro.autor}");
+        Console.WriteLine($"Categoría: {libro.categoría}");
+        Console.WriteLine();
+    }
+}
+public void BuscarLibrosPorCategoria(string categoria)
+{
+    var resultados = libros
+        .Where(l => l.categoría.ToLower() == categoria.ToLower());
+
+    foreach (var libro in resultados)
+    {
+        Console.WriteLine($"Código: {libro.codigo}");
+        Console.WriteLine($"Título: {libro.titulo}");
+        Console.WriteLine($"Autor: {libro.autor}");
+        Console.WriteLine($"Categoría: {libro.categoría}");
+        Console.WriteLine();
+    }
+}
+public void ListarLibrosOrdenados()
+{
+    var librosOrdenados = libros
+        .OrderBy(l => l.titulo);
+
+    foreach (var libro in librosOrdenados)
+    {
+        Console.WriteLine($"Código: {libro.codigo}");
+        Console.WriteLine($"Título: {libro.titulo}");
+        Console.WriteLine($"Autor: {libro.autor}");
+        Console.WriteLine($"Categoría: {libro.categoría}");
+        Console.WriteLine();
+    }
+}
 }
