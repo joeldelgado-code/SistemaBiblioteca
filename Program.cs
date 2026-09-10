@@ -19,6 +19,7 @@ Usuario usuario1 = new Usuario(1, "Joel", "joel@gmail.com");
 
 biblioteca.RegistrarUsuario(usuario1);
 biblioteca.ListarUsuarios();
+
 Usuario? usuarioEncontrado = biblioteca.BuscarUsuario(1);
 
 if (usuarioEncontrado != null)
@@ -29,3 +30,9 @@ else
 {
     Console.WriteLine("Usuario no encontrado.");
 }
+
+biblioteca.RegistrarPrestamo(1, 1);
+
+biblioteca.ListarLibros();
+
+biblioteca.ListarPrestamosActivos();
