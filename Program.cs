@@ -12,5 +12,3 @@ BibliotecaService biblioteca = new BibliotecaService();
 Libro libro1 = new Libro(1, "El Quijote", "Miguel de Cervantes", "Novela", true);
 
 biblioteca.RegistrarLibro(libro1);
-
-biblioteca.ListarLibros();
