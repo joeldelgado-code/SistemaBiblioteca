@@ -93,7 +93,7 @@ public void RegistrarPrestamo(int codigoLibro, int codigoUsuario)
     );
 
     prestamos.Add(prestamo);
-    libro.disponibilidad = false;
+    libro.Prestar();
 }
 public void DevolverLibro(int codigoLibro, int codigoUsuario)
 {
@@ -116,7 +116,7 @@ public void DevolverLibro(int codigoLibro, int codigoUsuario)
 
     prestamos.Remove(prestamo);
 
-    libro.disponibilidad = true;
+    libro.Devolver();
 }
 public void ListarPrestamosActivos()
 {
