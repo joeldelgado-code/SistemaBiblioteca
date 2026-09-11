@@ -1,4 +1,4 @@
-class Libro
+class Libro : IPrestable
 {
     //Registrar libros: título, autor, categoría, código y disponibilidad.
 
@@ -15,4 +15,13 @@ class Libro
         this.categoría=categoría;
         this.disponibilidad=disponibilidad;
     }
+public void Prestar()
+{
+    disponibilidad = false;
+}
+
+public void Devolver()
+{
+    disponibilidad = true;
+}
 }
